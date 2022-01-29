@@ -56,7 +56,7 @@ async def ytdl(link):
         return 0, stderr.decode()
 
 
-@Client.on_message(command(["vplay", f"vplay@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["vplay", f"vplay@TornadoMusicBot"]) & other_filters)
 async def vplay(c: Client, m: Message):
     replied = m.reply_to_message
     chat_id = m.chat.id
@@ -87,7 +87,7 @@ async def vplay(c: Client, m: Message):
         return
     if not a.can_delete_messages:
         await m.reply_text(
-            "xəta aşağıda yazılan yetkim yoxdur:" + "\n\n» ❌ __Mesaj silmə__"
+            "Xəta aşağıda yazılan yetkim yoxdur:" + "\n\n» ❌ __Mesaj silmə__"
         )
         return
     if not a.can_invite_users:
@@ -98,7 +98,7 @@ async def vplay(c: Client, m: Message):
         b = await c.get_chat_member(chat_id, ubot)
         if b.status == "kicked":
             await m.reply_text(
-                f"@{ASSISTANT_NAME} adlı asistan {m.chat.title} adlı qrupdan atılıb.\n\n» **botun banını açın.**"
+                f"@TornadoAsistan adlı asistan {m.chat.title} adlı qrupdan atılıb.\n\n» **botun banını açın.**"
             )
             return
     except UserNotParticipant:
@@ -193,7 +193,7 @@ async def vplay(c: Client, m: Message):
                 Q = 720
                 amaze = HighQualityVideo()
                 if search == 0:
-                    await loser.edit("❌ **Axtarış nəticə vermədi(.**")
+                    await loser.edit("❌ **Axtarış nəticə vermədi.**")
                 else:
                     songname = search[0]
                     url = search[1]
