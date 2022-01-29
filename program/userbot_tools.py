@@ -9,7 +9,7 @@ from driver.decorators import authorized_users_only, sudo_users_only
 
 
 @Client.on_message(
-    command(["userbotjoin", f"userbotjoin@{BOT_USERNAME}"]) & ~filters.private & ~filters.bot
+    command(["userbotjoin", f"userbotjoin@TornadoMusicBot"]) & ~filters.private & ~filters.bot
 )
 @authorized_users_only
 async def join_chat(c: Client, m: Message):
@@ -36,7 +36,7 @@ async def join_chat(c: Client, m: Message):
 
 
 @Client.on_message(command(["userbotleave",
-                            f"leave@{BOT_USERNAME}"]) & filters.group & ~filters.edited
+                            f"leave@TornadoMusicBot"]) & filters.group & ~filters.edited
 )
 @authorized_users_only
 async def leave_chat(_, m: Message):
@@ -54,7 +54,7 @@ async def leave_chat(_, m: Message):
         )
 
 
-@Client.on_message(command(["leaveall", f"leaveall@{BOT_USERNAME}"]))
+@Client.on_message(command(["leaveall", f"leaveall@TornadoMusicBot"]))
 @sudo_users_only
 async def leave_all(client, message):
     if message.from_user.id not in SUDO_USERS:
@@ -62,18 +62,18 @@ async def leave_all(client, message):
 
     left = 0
     failed = 0
-    lol = await message.reply("🔄 **userbot** leaving all chats !")
+    lol = await message.reply("🔄 **userbot** bütün söhbətlərdən çıxır !")
     async for dialog in USER.iter_dialogs():
         try:
             await USER.leave_chat(dialog.chat.id)
             left += 1
             await lol.edit(
-                f"Userbot leaving all group...\n\nLeft: {left} chats.\nFailed: {failed} chats."
+                f"Userbot söhbətlərdən çıxır...\n\nLeft: {left} chats.\nFailed: {failed} chats."
             )
         except BaseException:
             failed += 1
             await lol.edit(
-                f"Userbot leaving...\n\nLeft: {left} chats.\nFailed: {failed} chats."
+                f"Userbot çıxır...\n\nLeft: {left} chats.\nFailed: {failed} chats."
             )
         await asyncio.sleep(0.7)
     await client.send_message(
