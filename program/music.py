@@ -92,7 +92,7 @@ async def play(c: Client, m: Message):
         b = await c.get_chat_member(chat_id, ubot)
         if b.status == "kicked":
             await m.reply_text(
-                f"@{ASSISTANT_NAME} adlı asistan {m.chat.title} adlı qrupdan atılıb.\n\n» **botun banını açın.**"
+                f"@TornadoAsistan adlı asistan {m.chat.title} adlı qrupdan atılıb.\n\n» **botun banını açın.**"
             )
             return
     except UserNotParticipant:
@@ -136,7 +136,7 @@ async def play(c: Client, m: Message):
                 await suhu.delete()
                 await m.reply_photo(
                     photo=f"{IMG_1}",
-                    caption=f"💡 **Musiqi sıraya əlavə olundu »** `{pos}`\n\n🏷 **Ad:** [{songname}]({link})\n💭 **Qrup ID:** `{chat_id}`\n🎧 {m.from_user.mention()} tərəfindən.",
+                    caption=f"💡 **Musiqi sıraya əlavə olundu »** `{position}`\n\n🏷 **Ad:** [{songname}]({link})\n💭 **Qrup ID:** `{chat_id}`\n🎧 {m.from_user.mention()} tərəfindən.",
                     reply_markup=keyboard,
                 )
             else:
@@ -266,7 +266,7 @@ async def play(c: Client, m: Message):
 # stream is used for live streaming only
 
 
-@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["stream", f"stream@TornadoMusicBot"]) & other_filters)
 async def stream(c: Client, m: Message):
     chat_id = m.chat.id
     keyboard = InlineKeyboardMarkup(
@@ -307,7 +307,7 @@ async def stream(c: Client, m: Message):
         b = await c.get_chat_member(chat_id, ubot)
         if b.status == "kicked":
             await m.reply_text(
-                f"**@{ASSISTANT_NAME} adlı asistanın banın açın!**"
+                f"**@TornadoAsistan adlı asistanın banın açın!**"
             )
             return
     except UserNotParticipant:
