@@ -53,7 +53,7 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f""" Salam {message.from_user.mention()}! **Snactus ⚡️ sizi salamlayır.**\n
+        f""" Salam {message.from_user.mention()}! **Tornado 🌪 sizi salamlayır.**\n
 Botu qrupa əlavə edərək həm musiqi dinləyə həmdə video və ya kino izləyə bilərsiz.
 
 
@@ -64,21 +64,21 @@ Botu qrupa əlavə edərək həm musiqi dinləyə həmdə video və ya kino izl�
                 [
                     InlineKeyboardButton(
                         "➕ Məni qrupa əlavə et",
-                        url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
+                        url=f"https://t.me/TornadoMusicBot?startgroup=true",
                     )
                 ],
                 [
                     InlineKeyboardButton(
                         "🧔🏻 Sahibim",
-                        url=f"https://t.me/ValiyevAli",
+                        url=f"https://t.me/muellime",
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "✅ Dəstək qrupu", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "✅ Dəstək qrupu", url=f"https://t.me/TornadoSup"
                     ),
                     InlineKeyboardButton(
-                        "📣 Rəsmi kanal", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 Rəsmi kanal", url=f"https://t.me/TornadoXeberler"
                     ),
                 ],
 
@@ -100,11 +100,11 @@ async def new_chat(c: Client, m: Message):
                 reply_markup=InlineKeyboardMarkup(
                     [
                         [
-                            InlineKeyboardButton("✅ Rəsmi Kanal", url=f"https://t.me/{UPDATES_CHANNEL}"),
-                            InlineKeyboardButton("❤️ Dəstək qrupu", url=f"https://t.me/{GROUP_SUPPORT}")
+                            InlineKeyboardButton("✅ Rəsmi Kanal", url=f"https://t.me/TornadoXeberler"),
+                            InlineKeyboardButton("❤️ Dəstək qrupu", url=f"https://t.me/TornadoSup")
                         ],
                         [
-                            InlineKeyboardButton("👤 Asistan", url=f"https://t.me/{ass_uname}")
+                            InlineKeyboardButton("👤 Asistan", url=f"https://t.me/TornadoAsistan")
                         ]
                     ]
                 )
