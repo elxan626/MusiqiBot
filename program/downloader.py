@@ -35,7 +35,7 @@ ydl_opts = {
 }
 
 
-@Client.on_message(command(["song", f"song@{bn}"]) & ~filters.edited)
+@Client.on_message(command(["song", f"song@TornadoMusicBot"]) & ~filters.edited)
 def song(_, message):
     query = " ".join(message.command[1:])
     m = message.reply("🔎 Musiqi axtarılır...")
@@ -60,7 +60,7 @@ def song(_, message):
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**🎧 @{bn} tərəfindən yükləndi.\n\n⚡ Kanalımıza abunə olmağı unutmayın @SnactusNews**"
+        rep = f"**🎧 @TornadoMusicBot tərəfindən yükləndi.\n\n⚡ Kanalımıza abunə olmağı unutmayın @SnactusNews**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
@@ -76,7 +76,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ Xəta. @SnactusSup da xətanı paylaşa bilərsiz.")
+        m.edit("❌ Xəta. @TornadoSup da xətanı paylaşa bilərsiz.")
         print(e)
 
     try:
@@ -87,7 +87,7 @@ def song(_, message):
 
 
 @Client.on_message(
-    command(["vsong", f"vsong@{bn}", "video", f"video@{bn}"]) & ~filters.edited
+    command(["vsong", f"vsong@TornadoMusicBot", "video", f"video@TornadoMusicBot"]) & ~filters.edited
 )
 async def vsong(client, message):
     ydl_opts = {
@@ -119,7 +119,7 @@ async def vsong(client, message):
             ytdl_data = ytdl.extract_info(link, download=True)
             file_name = ytdl.prepare_filename(ytdl_data)
     except Exception as e:
-        return await msg.edit(f"🚫 **Xəta:** {e}\n\n@SnactusSup qrupunda xətanı bildirə bilərsiz.")
+        return await msg.edit(f"🚫 **Xəta:** {e}\n\n@TornadoSup qrupunda xətanı bildirə bilərsiz.")
     preview = wget.download(thumbnail)
     await msg.edit("📤 **Video qrupa göndərilir...**")
     await message.reply_video(
@@ -135,18 +135,18 @@ async def vsong(client, message):
         print(e)
 
 
-@Client.on_message(command(["lyrissc", f"lyric@{bn}"]))
+@Client.on_message(command(["lyrissc", f"lyric@TornadoMusicBot"]))
 async def lyrics(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("» **give a lyric name too.**")
+            await message.reply_text("» **liriksin adınıda verin.**")
             return
         query = message.text.split(None, 1)[1]
-        rep = await message.reply_text("🔎 **searching lyrics...**")
+        rep = await message.reply_text("🔎 **liriks axtarılır...**")
         resp = requests.get(
             f"https://api-tede.herokuapp.com/api/lirik?l={query}"
         ).json()
         result = f"{resp['data']}"
         await rep.edit(result)
     except Exception:
-        await rep.edit("❌ **results of lyric not found.**\n\n» **please give a valid song name.**")
+        await rep.edit("❌ **heçnə tapılmadı.**\n\n» **zəhmət olmasa düzgün mahnı adı verin.**")
