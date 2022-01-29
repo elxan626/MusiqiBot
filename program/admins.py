@@ -38,7 +38,7 @@ async def update_admin(client, message):
     )
 
 
-@Client.on_message(command(["skip", f"skip@{BOT_USERNAME}", "vskip"]) & other_filters)
+@Client.on_message(command(["skip", f"skip@TornadoMusicBot", "vskip"]) & other_filters)
 @authorized_users_only
 async def skip(client, m: Message):
 
@@ -89,7 +89,7 @@ async def skip(client, m: Message):
 
 
 @Client.on_message(
-    command(["stop", f"stop@{BOT_USERNAME}", "end", f"end@{BOT_USERNAME}", "vstop"])
+    command(["stop", f"stop@TornadoMusicBot", "end", f"end@TornadoMusicBot", "vstop"])
     & other_filters
 )
 @authorized_users_only
@@ -107,7 +107,7 @@ async def stop(client, m: Message):
 
 
 @Client.on_message(
-    command(["pause", f"pause@{BOT_USERNAME}", "vpause"]) & other_filters
+    command(["pause", f"pause@TornadoMusicBot", "vpause"]) & other_filters
 )
 @authorized_users_only
 async def pause(client, m: Message):
@@ -125,7 +125,7 @@ async def pause(client, m: Message):
 
 
 @Client.on_message(
-    command(["resume", f"resume@{BOT_USERNAME}", "vresume"]) & other_filters
+    command(["resume", f"resume@TornadoMusicBot", "vresume"]) & other_filters
 )
 @authorized_users_only
 async def resume(client, m: Message):
